@@ -1,0 +1,19 @@
+program Cond;
+var bool b; int x;
+begin
+	b = true;
+	x = 0;
+	if (b) then
+		x = 5;;
+
+	print(x);
+
+	b = not b;
+
+	if (b) then
+		x = 10;
+	else
+		x = 20;;
+
+	print(x);
+end.

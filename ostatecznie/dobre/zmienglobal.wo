@@ -1,0 +1,25 @@
+program zmienGlobal;
+var int x;
+function f(int a) : void;
+begin
+	print(x);
+	x = x + a;
+	print(x);
+	return;
+end;
+
+function g(int x) : void;
+begin
+	print(x);
+	x = 500;
+	print(x);
+	f(x);
+	print(x);
+	return;
+end;
+begin
+	x = 10;
+	print(x);
+	g(x);
+	print(x);
+end.

@@ -1,0 +1,14 @@
+program Loop;
+var int i; #domyślnie ustawia wartość inta na 0
+begin
+	while (i < 5) do
+		print(i);
+		i = i+1;;
+
+	for i = 1 to 5 do
+		print(i);;
+
+	for i = 10 downto 5 do
+		print(i);;
+
+end.

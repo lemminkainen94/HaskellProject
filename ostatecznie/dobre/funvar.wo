@@ -1,0 +1,14 @@
+program funVar;
+var int x; int y;
+function f(var int i) : int;
+begin
+        i = 5;
+	return 10001;
+end;
+
+begin
+        y = f(x);
+	print(y);
+        print(x);
+end.
+

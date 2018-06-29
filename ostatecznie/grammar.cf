@@ -1,0 +1,84 @@
+entrypoints Program ;
+
+comment "#" ;
+
+Prog. Program ::= ProgramHeading DeclarationPart StatementPart "." ;
+ProgHead. ProgramHeading ::= "program" Ident ";" ;
+DeclPart. DeclarationPart ::= TypeDefinitionPart VariableDeclarationPart FunctionDeclarationPart ;
+
+TypeDefPartEmpty. TypeDefinitionPart ::= ;
+TypeDefPart. TypeDefinitionPart ::= "type" [RecordDefinition] ;
+RecDef. RecordDefinition ::= "record" Ident [Field] "end" ;
+IntRecFld. Field ::= "int" [Ident] ;
+LogicRecFld. Field ::= "bool" [Ident] ;
+
+VarDeclPartEmpty. VariableDeclarationPart ::= ;
+VarDeclPart. VariableDeclarationPart ::= "var" [VariableDeclaration] ;
+VarDecl. VariableDeclaration ::= Type Ident ;
+
+FunDeclPart. FunctionDeclarationPart ::= [FunctionDeclaration] ;
+FunDecl. FunctionDeclaration ::= FunctionHeading ";" FunctionBody ;
+FunHead. FunctionHeading ::= "function" Ident FormalParameterList ":" Type ;
+FormalParamList. FormalParameterList ::= "(" [FormalParameterSection] ")" ;
+ValParamSect. FormalParameterSection ::= Type Ident ;
+VarParamSect. FormalParameterSection ::= "var" Type Ident ;
+FunBody. FunctionBody ::= VariableDeclarationPart FunctionStatementPart ;
+FunStmtPart. FunctionStatementPart ::= "begin" [Statement] ReturnStatement "end" ;
+RetStmtEmpty. ReturnStatement ::= "return" ";" ;
+RetStmt. ReturnStatement ::= "return" Exp ";" ;
+
+StmtPart. StatementPart ::= "begin" [Statement] "end" ;
+ExpStmt. Statement ::= Exp ;
+PrintStmt. Statement ::= "print" "(" Exp ")" ;
+AssignStmt. Statement ::= Variable "=" Exp ;
+WhileStmt. Statement ::= "while" Exp "do" [Statement] ;
+ForToStmt. Statement ::= "for" Ident "=" Exp "to" Exp "do" [Statement] ;
+ForDowntoStmt. Statement ::= "for" Ident "=" Exp "downto" Exp "do" [Statement] ;
+IfStmt. Statement ::= "if" Exp "then" [Statement] ;
+IfElseStmt. Statement ::= "if" Exp "then" [Statement] "else" [Statement] ;
+
+EOr. Exp ::= Exp "or" Exp1 ;
+EAnd. Exp1 ::= Exp1 "and" Exp2 ;
+ELess. Exp2 ::= Exp2 "<" Exp3 ;
+EGreater. Exp2 ::= Exp2 ">" Exp3 ;
+ELessEqual. Exp2 ::= Exp2 "<=" Exp3 ;
+EGreaterEqual. Exp2 ::= Exp2 ">=" Exp3 ;
+EEqual. Exp2 ::= Exp2 "==" Exp3 ;
+ENonEqual. Exp2 ::= Exp2 "<>" Exp3 ;
+EAdd. Exp3 ::= Exp3 "+" Exp4 ;
+ESub. Exp3 ::= Exp3 "-" Exp4 ;
+EMul. Exp4 ::= Exp4 "*" Exp5 ;
+EDiv. Exp4 ::= Exp4 "/" Exp5 ;
+EMod. Exp4 ::= Exp4 "mod" Exp5 ;
+EMin. Exp5 ::= "-" Exp5 ;
+ENot. Exp5 ::= "not" Exp5 ;
+EVar. Exp5 ::= Variable ;
+EFun. Exp5 ::= Ident "(" [Exp] ")" ;
+EInt. Exp5 ::= Integer ;
+ELogic. Exp5 ::= Logical ;
+
+coercions Exp 5 ;
+
+Var. Variable ::= Ident ;
+ArrayVariable. Variable ::= Ident "[" Exp "]" ;
+FieldDes. Variable ::= Ident "." Ident ;
+
+IntType. Type ::= "int" ;
+LogicType. Type ::= "bool" ;
+IntArrayType. Type ::= "int" "array" "[" Integer "]" ;
+LogicArrayType. Type ::= "bool" "array" "[" Integer "]" ;
+RecordType. Type ::= Ident ;
+VoidType. Type ::= "void" ;
+
+token Logical ({"true"} | {"false"}) ;
+
+
+separator nonempty Ident "," ;
+separator Exp "," ;
+separator FormalParameterSection "," ;
+separator nonempty Field ";" ;
+
+terminator Statement ";" ;
+terminator RecordDefinition ";" ;
+terminator nonempty VariableDeclaration ";" ;
+terminator FunctionDeclaration ";" ;

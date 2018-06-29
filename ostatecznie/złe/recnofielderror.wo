@@ -1,0 +1,9 @@
+program noRecField;
+type
+	record Point
+		int x, y
+	end;
+var Point p1;
+begin
+	print(p1.niemamnie);
+end.

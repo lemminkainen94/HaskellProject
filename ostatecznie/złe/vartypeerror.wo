@@ -1,0 +1,6 @@
+program varTypeError;
+var int x;
+begin
+	if (x) then
+		print(x);;
+end.

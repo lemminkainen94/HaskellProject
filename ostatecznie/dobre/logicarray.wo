@@ -1,0 +1,10 @@
+program logicArray;
+var bool array[5] a; int i;
+begin
+	for i = 0 to 5 do
+		if (i mod 2 == 0) then
+			a[i] = true;
+		else
+			a[i] = false;;
+		print(a[i]);;
+end.

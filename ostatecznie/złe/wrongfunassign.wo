@@ -1,0 +1,10 @@
+program wrongFunAssign;
+var int x;
+function f(bool b) : bool;
+begin
+	return b;
+end;
+
+begin
+	x = f(5);
+end.

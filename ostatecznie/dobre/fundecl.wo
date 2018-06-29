@@ -1,0 +1,17 @@
+program funDecl;
+var int x; int y;
+function p() : void;
+begin
+	print(2+2);
+	return;
+end;
+function f(int i) : int;
+begin
+	return i;
+end;
+
+begin
+	p();
+	x = f(5);
+	print(x);
+end.

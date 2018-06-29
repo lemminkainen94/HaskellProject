@@ -1,0 +1,27 @@
+program complexAssignments;
+type
+	record Point
+		int x, y
+	end;
+var 
+	int i;
+	int array[5] a;
+	int array[5] b;
+	Point p1;
+	Point p2;
+begin
+	for i = 0 to 5 do
+		a[i] = 2+i;;
+
+	p1.x = 1000;
+	p1.y = 2000;
+
+	p2 = p1;
+	b = a;
+
+	print(p2.x);
+	print(p2.y);
+
+	for i = 0 to 5 do
+		print(b[i]);;
+end.

@@ -1,0 +1,25 @@
+program deepRef;
+function h(var int j) : void;
+begin
+	j = 42;
+	return;
+end;
+
+function f(var int i) : void;
+begin
+	h(i);
+	return;
+end;
+
+function p() : void;
+var int x;
+begin
+	print(x);
+	f(x);
+	print(x);
+	return;
+end;
+
+begin
+	p();
+end.

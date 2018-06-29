@@ -1,0 +1,13 @@
+program funVarArr;
+var int array[5] a;
+function f(var int i) : int;
+begin
+	i = 5;
+	return i;
+end;
+
+begin
+	print(a[0]);
+	f(a[0]);
+	print(a[0]);
+end.

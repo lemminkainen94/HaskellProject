@@ -1,0 +1,7 @@
+program intArray;
+var int array[5] a; int i;
+begin
+	for i = 0 to 6 do
+		a[i] = 2+i;
+		print(a[i]);;
+end.

@@ -1,0 +1,10 @@
+program wrongFunDecl;
+var int x;
+function f(int i) : bool;
+begin
+	return i;
+end;
+
+begin
+	x = f(5);
+end.

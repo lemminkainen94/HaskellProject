@@ -1,0 +1,6 @@
+program Assign;
+var  int x;
+begin
+	x = 5;
+	print(x);
+end.

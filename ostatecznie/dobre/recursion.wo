@@ -1,0 +1,16 @@
+program recursion;
+var int x;
+function fib(int i) : int;
+var int res;
+begin
+	if (i <= 1) then
+		res = i;
+	else
+		res = fib(i-1) + fib(i-2);;
+	return res;
+end;
+
+begin
+	x = fib(5);
+	print(x);
+end.

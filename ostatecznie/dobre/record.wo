@@ -1,0 +1,21 @@
+program records;
+type
+	record Rectangle
+		int x1, x2, y1, y2;
+		bool isSquare, isFlat
+	end;
+var Rectangle r;
+begin
+	r.x1 = 1;
+	r.y1 = 1;
+	r.x2 = 3;
+	r.y2 = 3;
+	r.isSquare = true;
+	r.isFlat = false;
+	print(r.x1);
+	print(r.y1);
+	print(r.x2);
+	print(r.y2);
+	print(r.isSquare);
+	print(r.isFlat);
+end.
