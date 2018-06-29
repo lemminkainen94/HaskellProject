@@ -1,7 +1,6 @@
 # HaskellProject
 
 Simplified C-like language interpreter written in Haskell for a course from my 3rd year of BSc in CS.
-
 The language has several features, like:
 -static binding and typing
 -functions
